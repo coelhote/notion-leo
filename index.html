@@ -1,0 +1,62 @@
+<html> 
+<head>
+    <title>Mensagem Saudação</title> 
+    <style>
+#lbl {
+    font-family: monospace;
+    font-size: xx-large;
+    color: #626262;
+    padding: 5px;
+    border: 1px solid #ececec;
+    text-align: center;
+    line-height: 1.5;
+    height:85%
+
+
+}
+#date{
+    font-size:large;
+}
+body{
+    background-color: #ffffba;
+}
+    </style>
+</head>
+<body>
+  <a class="weatherwidget-io" href="https://forecast7.com/pt/n28d94n49d49/ararangua/" data-label_1="ARARANGUÁ" data-theme="weather_one" >ARARANGUÁ</a>
+  <script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+  </script>
+  
+    <div id="lbl"></div>
+</body>
+
+<script>
+    var weekday = new Array(7);
+    weekday[0] = "Domingo";
+    weekday[1] = "Segunda-Feira";
+    weekday[2] = "Terça-Feira";
+    weekday[3] = "Quarta-Feira";
+    weekday[4] = "Quinta-Feira";
+    weekday[5] = "Sexta-Feira";
+    weekday[6] = "Sábado-Feira";
+
+    
+    var today = new Date();
+    var hrs = today.getHours();
+    var dayOfWeek = weekday[today.getDay()];
+    var date = dayOfWeek+" " + today.getDate() + "/" +(today.getMonth()+1 < 10 ? '0'+(today.getMonth()+1) : today.getMonth()+1) +'/'+today.getFullYear()  ;
+
+    var greet;
+
+    if (hrs < 12)
+        greet = 'Bom Dia, Leonardo Bedin ';
+    else if (hrs >= 12 && hrs <= 17)
+        greet = 'Boa Tarde, Leonardo Bedin ';
+    else if (hrs >= 17 && hrs <= 24)
+        greet = 'Boa Noite, Leonardo Bedin ';
+
+    document.getElementById('lbl').innerHTML =
+        greet+=`<div id="date"> Hoje é ${date}</div>`;
+</script> 
+</html>
